@@ -194,6 +194,18 @@ int have_devfd = 0;
 /* The name of the .(shell)rc file. */
 static char *bashrc_file = DEFAULT_BASHRC;
 
+/* The name of the .profile file. */
+static char *profile_file = DEFAULT_PROFILE;
+
+/* The name of the .bash_profile file. */
+static char *bash_profile_file = DEFAULT_BASH_PROFILE;
+
+/* The name of the .bash_login file. */
+static char *bash_login_file = DEFAULT_BASH_LOGIN;
+
+/* The name of the .bash_logout file. */
+static char *bash_logout_file = DEFAULT_BASH_LOGOUT;
+
 /* Non-zero means to act more like the Bourne shell on startup. */
 static int act_like_sh;
 
@@ -1157,10 +1169,10 @@ run_startup_files ()
 	  maybe_execute_file (SYS_PROFILE, 1);
 
 	  if (act_like_sh)	/* sh */
-	    maybe_execute_file ("~/.profile", 1);
-	  else if ((maybe_execute_file ("~/.bash_profile", 1) == 0) &&
-		   (maybe_execute_file ("~/.bash_login", 1) == 0))	/* bash */
-	    maybe_execute_file ("~/.profile", 1);
+	    maybe_execute_file (profile_file, 1);
+	  else if ((maybe_execute_file (bash_profile_file, 1) == 0) &&
+		   (maybe_execute_file (bash_login_file, 1) == 0))	/* bash */
+	    maybe_execute_file (profile_file, 1);
 	}
 
       sourced_login = 1;
@@ -1193,10 +1205,10 @@ run_startup_files ()
 	      maybe_execute_file (SYS_PROFILE, 1);
 
 	      if (act_like_sh)	/* sh */
-		maybe_execute_file ("~/.profile", 1);
-	      else if ((maybe_execute_file ("~/.bash_profile", 1) == 0) &&
-		       (maybe_execute_file ("~/.bash_login", 1) == 0))	/* bash */
-		maybe_execute_file ("~/.profile", 1);
+		maybe_execute_file (profile_file, 1);
+	      else if ((maybe_execute_file (bash_profile_file, 1) == 0) &&
+		       (maybe_execute_file (bash_login_file, 1) == 0))	/* bash */
+		maybe_execute_file (profile_file, 1);
 	    }
 	}
 

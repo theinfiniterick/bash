@@ -88,7 +88,39 @@
 #define KSH_COMPATIBLE_SELECT
 
 /* Default interactive shell startup file. */
-#define DEFAULT_BASHRC "~/.bashrc"
+#ifndef DEFAULT_BASHRC
+#define DEFAULT_BASHRC "~/.config/bash/bashrc"
+#endif
+
+/* Default .profile for login shells. */
+#ifndef DEFAULT_PROFILE
+#define DEFAULT_PROFILE "~/.profile"
+#endif
+
+/* Default .bash_profile for login shells. */
+#ifndef DEFAULT_BASH_PROFILE
+#define DEFAULT_BASH_PROFILE "~/.config/bash/bash_profile"
+#endif
+
+/* Default .bash_login for login shells. */
+#ifndef DEFAULT_BASH_LOGIN
+#define DEFAULT_BASH_LOGIN "~/.config/bash/bash_login"
+#endif
+
+/* Default .bash_logout for login shells. */
+#ifndef DEFAULT_BASH_LOGOUT
+#define DEFAULT_BASH_LOGOUT "~/.config/bash/bash_logout"
+#endif
+
+/* Default .bash_history for bash shells. */
+#ifndef DEFAULT_BASH_HISTORY
+#define DEFAULT_BASH_HISTORY "~/.config/bash/bash_history"
+#endif
+
+/* Default .sh_history for POSIX shells. */
+#ifndef DEFAULT_SH_HISTORY
+#define DEFAULT_SH_HISTORY "~/.sh_history"
+#endif
 
 /* System-wide .bashrc file for interactive shells. */
 /* #define SYS_BASHRC "/etc/bash.bashrc" */
